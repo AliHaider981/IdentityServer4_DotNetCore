@@ -46,7 +46,8 @@ step 7:
 
 step 8: 
 	add services 
-			services.AddAuthentication(options =>
+		
+	    services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -61,11 +62,16 @@ step 8:
             {
                 options.AddPolicy("PublicSecure", pollicy => PolicyHandler.AuthorizeRequest(pollicy));
             });
+	    
 
 step 9:
 	add meddleware
+	
+	
 		app.UseAuthentication();
             app.UseAuthorization();
+
+
 
 step 9:
 	add authorize filter with policy descibe in service as
